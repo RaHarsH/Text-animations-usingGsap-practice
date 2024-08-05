@@ -8,7 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
     const textRef1 = useRef(null);
     const textRef2 = useRef(null);
+    const textRef3 = useRef(null);
+    
     const contentRef = useRef(null);
+    const contentRef2 = useRef(null);
     const paraRef = useRef(null);
     useEffect(() => {
         const splitText = new SplitType(textRef1.current, {types: 'chars'});
@@ -98,6 +101,51 @@ const Home = () => {
             scrub: 2,
         }
     })
+
+    const splitText3 = new SplitType(textRef3.current, {types: 'chars'})
+
+    gsap.fromTo(splitText3.chars, {
+        color: '#464242',
+    },{
+        y: '0%',
+        opacity: 1,
+        color: 'white',
+        stagger: 0.5,
+        duration: 1.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: textRef3.current,
+            start: 'top 80%',
+            end: 'top 20%',
+            markers: false,
+            toggleActions: 'play none none reverse',
+            scrub: 2,
+        }
+    })
+
+    const splitContent2 = new SplitType(contentRef2.current, {types: 'lines'})
+
+    gsap.fromTo(splitContent2.lines, {
+        y: '100%',
+        opacity: 0,
+        color: '#464242',
+    },{
+        y: '0%',
+        opacity: 1,
+        color: 'white',
+        stagger: 0.5,
+        duration: 1.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: contentRef2.current,
+            start: 'top 100%',
+            end: 'top 30%',
+            markers: false,
+            toggleActions: 'play none none reverse',
+            scrub: 2,
+        }
+    })
+        
     }, [])
     return (
         <div className='home'>
@@ -108,9 +156,15 @@ const Home = () => {
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero quam, dolorum commodi iste quibusdam ipsa nesciunt unde explicabo neque minima ab et aut iure eligendi vel, sint omnis. Blanditiis, ab velit! Obcaecati, aperiam ipsum fugiat in doloremque iusto ducimus exercitationem error similique et cupiditate repudiandae enim ab? Voluptatem, fuga reprehenderit!
                 </p>
             </div>
+            
             <div className="text-container2">
                 <h1 ref={textRef2}>This is text animation 2</h1>
                 <p ref={contentRef}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab impedit cumque qui! Nobis, quo commodi culpa neque voluptates voluptas sint dolor incidunt dolorem vitae, optio expedita aut illo aperiam error laboriosam necessitatibus est nemo sit libero. Delectus nisi sit modi quaerat adipisci. Odio est minima saepe itaque corporis ad dolorum reiciendis, id, ut labore similique quam corrupti facilis cupiditate suscipit officia aliquam ducimus voluptas laboriosam! Cum quisquam quasi molestias dolorum amet quas tempore optio eveniet ipsa repellendus, quam nulla quidem, voluptas ab deserunt perspiciatis fugiat ipsam aperiam fugit. Ab neque, dolor nam tenetur quaerat totam nisi deleniti unde. Et, rerum?</p>
+            </div>
+            
+            <div className="text-container3">
+                <h1 ref={textRef3}>This is text animation 3</h1>
+                <p ref={contentRef2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab impedit cumque qui! Nobis, quo commodi culpa neque voluptates voluptas sint dolor incidunt dolorem vitae, optio expedita aut illo aperiam error laboriosam necessitatibus est nemo sit libero. Delectus nisi sit modi quaerat adipisci. Odio est minima saepe itaque corporis ad dolorum reiciendis, id, ut labore similique quam corrupti facilis cupiditate suscipit officia aliquam ducimus voluptas laboriosam! Cum quisquam quasi molestias dolorum amet quas tempore optio eveniet ipsa repellendus, quam nulla quidem, voluptas ab deserunt perspiciatis fugiat ipsam aperiam fugit. Ab neque, dolor nam tenetur quaerat totam nisi deleniti unde. Et, rerum?</p>
             </div>
         </div>
     );
