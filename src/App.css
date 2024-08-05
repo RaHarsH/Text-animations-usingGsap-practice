@@ -42,4 +42,21 @@ body {
       line-break: auto;
     }
   }
+  
+  .text-container3 {
+    height: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-size: 150px;
+    }
+    p {
+      font-size: 30px;
+      line-height: 50px;
+      color: gray;
+      line-break: auto;
+    }
+  }
 }   
