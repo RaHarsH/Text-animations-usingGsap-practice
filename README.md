@@ -1,2 +1,2 @@
 npm start - to start the development server.
-or npm run start
+or type npm run start.
